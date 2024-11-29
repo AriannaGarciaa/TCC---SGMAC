@@ -9,10 +9,10 @@ class Chamado extends Model
 {
     use HasFactory;
 
-    protected $table = 'chamados'; // Define o nome da tabela
-    protected $primaryKey = 'idChamado'; // Define a chave primária
+    protected $table = 'chamados';
+    protected $primaryKey = 'idChamado'; 
 
-    protected $fillable = [
+        protected $fillable = [
         'Local',
         'DescricaoProblema',
         'NomePessoa',
@@ -24,6 +24,6 @@ class Chamado extends Model
 
     public function manutencoes()
     {
-        return $this->hasMany(Manutencao::class, 'chamado_id', 'idChamado'); // Atualize os campos se necessário
+        return $this->hasMany(Manutencao::class, 'chamado_id', 'idChamado'); 
     }
 }

@@ -9,8 +9,9 @@ class Equipamento extends Model
 {
     use HasFactory;
 
-    protected $table = 'equipamentos'; // Define o nome da tabela
-    protected $primaryKey = 'idEquipamentos'; // Define a chave primária
+    protected $table = 'equipamentos';
+    protected $primaryKey = 'idEquipamento'; 
+     
 
     protected $fillable = [
         'BTU_Capacidade',  

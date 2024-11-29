@@ -9,8 +9,9 @@ class Servidor extends Model
 {
     use HasFactory;
 
-    protected $table = 'servidor'; // Define o nome da tabela
-    protected $primaryKey = 'idServidor'; // Define a chave primária
+    protected $table = 'servidor';
+    protected $primaryKey = 'idServidor';  
+   
 
     protected $fillable = [
         'nome',

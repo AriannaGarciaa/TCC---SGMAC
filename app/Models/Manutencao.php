@@ -9,8 +9,8 @@ class Manutencao extends Model
 {
     use HasFactory;
 
-    protected $table = 'manutencoes'; // Define o nome da tabela
-    protected $primaryKey = 'idManutencoes'; // Define a chave primária
+    protected $table = 'manutencoes'; 
+    protected $primaryKey = 'IdManutencoes'; 
 
     protected $fillable = [
         'tecnico_manutencao_idTecnicoManutencao',

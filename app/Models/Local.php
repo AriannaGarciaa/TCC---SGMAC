@@ -9,9 +9,9 @@ class Local extends Model
 {
     use HasFactory;
 
-    protected $table = 'local'; // Define o nome da tabela
-    protected $primaryKey = 'idLocal'; // Define a chave primária
-
+    protected $table = 'local'; 
+    protected $primaryKey = 'idLocal'; 
+     
     protected $fillable = [
         'bloco',       
         'sala',        
