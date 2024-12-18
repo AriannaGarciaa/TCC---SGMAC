@@ -1,15 +1,23 @@
 <?php
-
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
+// Redireciona para login se não autenticado
 Route::get('/', function () {
-    Route::resource('servidores', ServidorController::class);
-    Route::resource('chamados', ChamadoController::class);
-    Route::resource('manutencoes', ManutencaoController::class);
-    Route::resource('tecnicos', TecnicoManutencaoController::class);
-    Route::resource('equipamentos', EquipamentoController::class);
-    Route::resource('locais', LocalController::class);
-    Route::resource('manutencoes-equipamentos', ManutencoesEquipamentosController::class); 
-   
-    return view('welcome');
+    return redirect()->route('login');
 });
+
+// Rotas personalizadas de Login e Logout
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'logar'])->name('logar');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Grupo de rotas protegidas por middleware de autenticação
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/index', function () {
+        return view('welcome'); // Página protegida após o login
+    })->name('index');
+});
+
+// Verifica as rotas padrão de autenticação
+Auth::routes();
